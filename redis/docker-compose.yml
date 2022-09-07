@@ -1,0 +1,13 @@
+version: '3'
+services:
+    web:
+        build: ./app # où se trouve le dockerfile
+        ports:
+            - "5000:5000" # ports utiliser pour lancer l'application
+        volumes:
+            - ./app:/app
+        depends_on: 
+            - redis-container
+
+    redis-container:
+        image: redis
